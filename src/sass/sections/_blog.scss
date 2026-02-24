@@ -1,0 +1,67 @@
+@use "../abstracts/abstracts" as ab;
+
+
+.blog {
+    margin-bottom: 40px;
+    & .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & h2 {
+            text-align: center;
+            color: ab.$grey;
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px grey;
+        }
+        
+        & > p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            // text-align: center;
+        }
+        
+        
+        & .blog_article {
+            box-shadow: 0px 10px 10px -8px grey;
+            margin-bottom: 20px;
+            background-color: white;
+            & img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                margin-bottom: 20px;
+            }
+            & .link {
+                text-decoration: none;
+                color: ab.$grey;
+                & h3 {
+                    font-size: 20px;
+                    padding: 0px 10px;
+                }
+            }
+
+            & p {
+                font-size: 16px;
+                color: ab.$greyligth;
+                padding: 30px 10px;
+            }    
+        }
+
+
+        & .btn {
+            align-self: center;
+            @include ab.botonarticle(){
+                font-size: 20px;
+                
+            }
+        }
+        @include ab.breakpoint(tablet) {
+            .blog_art {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+    }
+}

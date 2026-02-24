@@ -1,0 +1,56 @@
+@use "../abstracts/abstracts" as ab;
+
+
+.footer {
+
+    & .container{
+        background: linear-gradient(to right, #972b9b 0%, ab.$cyan 100%);
+        padding: 20px 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        & .logo {
+
+            img {
+                width: 100px;
+            }
+        }
+
+        & .footer_nav {
+            display: flex;
+            flex-direction: column;
+            & h3 {
+              font-size: 25px;
+              margin-bottom: 10px;
+            }
+            & a {
+             color: white;
+             text-decoration: none;
+             margin-bottom: 5px;
+            }
+        }
+
+        & .footer_copy {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            strong {
+                color: ab.$cyan;
+            }
+
+            &_social {
+                & ul {
+                    display: flex;
+                    gap: 10px;
+
+                    & i {
+                        font-size: 20px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+}

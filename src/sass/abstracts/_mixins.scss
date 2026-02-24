@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as var;
+
+
+// REPONSIVE LAYOUT
+@mixin breakpoint($bp) {
+  
+  @if $bp == tablet {
+    // Cuando el ancho sea mayor o igual el valor de $bp-tablet que en este caso es 768px
+    @media (width >= var.$bp-tablet) {
+      @content;
+    }
+    
+  }
+  @if $bp == tablethorizontal {
+    @media (width >= var.$bp-tablet-horizontail) {
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (width >= var.$bp-desktop) {
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl {
+    @media (width >= var.$bp-desktop-xl) {
+      @content;
+    }
+  }
+
+
+}
+
+
+@mixin botonarticle() {
+   background-color: var.$cyan;
+   color: white;
+   text-decoration: none;
+   display: inline-block;
+   padding: 8px 50px;
+   border-radius: 20px;
+   box-shadow: 0px 10px 5px -10px grey;
+   display: inline-flex;
+
+
+   &:hover {
+    background-color: var.$grey;
+   }
+
+   @content;
+
+}
