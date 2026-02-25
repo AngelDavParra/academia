@@ -1,154 +1,331 @@
 @use "../abstracts/abstracts" as ab;
 
-.header {
-     position:fixed;
-     background-color: white;
-     top: 0;
-     width: 100%;
-     z-index: 100;
-     @include ab.breakpoint(tablet) {
-       box-shadow: 0px 1px 8px grey;
-     }
+// .header {
+//      position:fixed;
+//      background-color: white;
+//      top: 0;
+//      width: 100%;
+//      z-index: 100;
+//      @include ab.breakpoint(tablet) {
+//        box-shadow: 0px 1px 8px grey;
+//      }
      
-    .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
+//     .container {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         position: relative;
       
 
-        & a {
-          display:flex;
-            & img {
-              align-self: center;
-                width: 100px;
-            }
-        }
+//         & a {
+//           display:flex;
+//             & img {
+//               align-self: center;
+//                 width: 100px;
+//             }
+//         }
 
-      #menu-toggle {
-        display: none;
+//       #menu-toggle {
+//         display: none;
+//       }
+
+//       .menu-icon {
+//         font-size: 25px;
+//         padding: 15px 0px;
+
+//         cursor: pointer;
+//         display: block;
+//       }
+
+//       .header_nav {
+//         position: absolute;
+//         top: 100%;
+//         left: 0;
+//         right: 0;
+//         background-color: white;
+//         flex-direction: column;
+//         align-items:end;
+
+
+//         opacity: 0;
+//         visibility: hidden;
+//         overflow: hidden;
+
+
+//         transition: 
+//         max-height 0.4s ease,
+//         opacity 0.4s ease,
+//         transform 0.4s ease,
+//         visibility 0.4s ease;
+
+//         ul {
+//           list-style: none;
+//           padding: 0;
+//           margin: 0;
+//           width: 100%;
+
+//           li {
+//             font-size: 14px;
+//             background-color: rgb(239, 240, 241);
+//             border-bottom: 1px solid rgb(228, 227, 227);
+//             &:hover {
+//               background-color: rgb(230, 229, 229);
+//             }
+            
+//             a {
+//               text-decoration: none;
+//               color: #505050;
+//               display: block;
+//               padding: 20px 10px;
+//             }
+//           }
+
+//           & .link_formaciones {          
+//             &_submenu {
+//               display: none;
+
+
+//               & li:hover {
+//                 background-color: #1f9ee7;
+//               }
+//             }
+            
+//             &:hover .link_formaciones_submenu {
+//               display: block;
+//               background-color: #1f9ee7;
+//             }
+//           }
+//         }
+//       }
+
+//       // Mostrar menú cuando el checkbox está activado
+//       //"Cuando el elemento con id="menu-toggle" está marcado (checked), selecciona cualquier hermano posterior que tenga la clase .header_nav y aplícale display: flex."
+//       #menu-toggle:checked ~ .header_nav {
+//           max-height: 500px; // ajusta si tu menú es más grande
+//           opacity: 1;
+//           visibility: visible;
+//           // transform: translateY(0); // vuelve a su lugar
+//       }
+
+//       @include ab.breakpoint(tablet) {
+//         .menu-icon {
+//           display: none;
+//         }
+
+//         .header_nav {
+//           display: block;
+//           position: static;
+//           box-shadow:none;
+//           opacity:initial;
+//           visibility: visible;
+//           // transform: translateY(0);
+          
+//           ul {
+//             display: flex;
+//             gap: 15px;
+//             margin-right: 80px;
+            
+//             li {
+//               padding: 0;
+//               background-color: white;
+//               border-bottom: 0px;
+//               &:hover {
+//               background-color: white;
+//               }
+
+//               a {
+//                 &:hover {
+//                   color: black;
+//                 }
+//               }
+//             }
+//           }
+
+//           & .link_formaciones {
+//             &_submenu {
+//               position: absolute;
+//               width: 250px;
+//               top: 100%;
+//             }
+//           }
+//         }
+//       }
+//     }
+// }
+
+.header {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  @include ab.breakpoint(tablet) {
+    box-shadow: 0px 1px 8px grey;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    & a {
+      display: flex;
+
+      & img {
+        align-self: center;
+        width: 100px;
       }
+    }
 
-      .menu-icon {
-        font-size: 25px;
-        padding: 15px 0px;
+    #menu-toggle {
+      display: none;
+    }
 
-        cursor: pointer;
-        display: block;
-      }
+    .menu-icon {
+      font-size: 25px;
+      padding: 15px 0px;
+      cursor: pointer;
+      display: block;
+    }
 
-      .header_nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: white;
-        flex-direction: column;
-        align-items:end;
+    /* ============================= */
+    /* MENÚ MÓVIL */
+    /* ============================= */
 
+    .header_nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
 
-        opacity: 0;
-        visibility: hidden;
-        overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      max-height: 0;
 
-
-        transition: 
+      transition:
         max-height 0.4s ease,
         opacity 0.4s ease,
-        transform 0.4s ease,
         visibility 0.4s ease;
 
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          width: 100%;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
 
-          li {
+        li {
+          font-size: 14px;
+  
+
+          &:hover {
+            background-color: rgb(230, 229, 229);
+          }
+
+          a {
+            text-decoration: none;
+            color: #505050;
+            display: block;
+            padding: 20px 10px;
+          }
+        }
+
+        /* SUBMENÚ MÓVIL (controlado por JS) */
+
+        .link_formaciones {
+          position: relative;
+
+          .btn_formaciones {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 10px;
             font-size: 14px;
-            background-color: rgb(239, 240, 241);
-            border-bottom: 1px solid rgb(228, 227, 227);
-            &:hover {
-              background-color: rgb(230, 229, 229);
-            }
-            
-            a {
-              text-decoration: none;
-              color: #505050;
-              display: block;
-              padding: 20px 10px;
-            }
+            color: #505050;
+            cursor: pointer;
           }
 
-          & .link_formaciones {          
-            &_submenu {
-              display: none;
-
-
-              & li:hover {
-                background-color: #1f9ee7;
-              }
-            }
-            
-            &:hover .link_formaciones_submenu {
-              display: block;
-              background-color: #1f9ee7;
-            }
-          }
-        }
-      }
-
-      // Mostrar menú cuando el checkbox está activado
-      //"Cuando el elemento con id="menu-toggle" está marcado (checked), selecciona cualquier hermano posterior que tenga la clase .header_nav y aplícale display: flex."
-      #menu-toggle:checked ~ .header_nav {
-          max-height: 500px; // ajusta si tu menú es más grande
-          opacity: 1;
-          visibility: visible;
-          // transform: translateY(0); // vuelve a su lugar
-      }
-
-      @include ab.breakpoint(tablet) {
-        .menu-icon {
-          display: none;
-        }
-
-        .header_nav {
-          display: block;
-          position: static;
-          box-shadow:none;
-          opacity:initial;
-          visibility: visible;
-          // transform: translateY(0);
-          
-          ul {
-            display: flex;
-            gap: 15px;
-            margin-right: 80px;
-            
-            li {
-              padding: 0;
-              background-color: white;
-              border-bottom: 0px;
-              &:hover {
-              background-color: white;
-              }
-
-              a {
-                &:hover {
-                  color: black;
-                }
-              }
-            }
+          &_submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: white;
           }
 
-          & .link_formaciones {
-            &_submenu {
-              position: absolute;
-              width: 250px;
-              top: 100%;
-            }
+          &_submenu.activo {
+            max-height: 300px;
           }
         }
       }
     }
+
+    /* Mostrar menú principal móvil */
+
+    #menu-toggle:checked ~ .header_nav {
+      max-height: 500px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ============================= */
+    /* DESKTOP */
+    /* ============================= */
+
+    @include ab.breakpoint(tablet) {
+
+      .menu-icon {
+        display: none;
+      }
+
+      .header_nav {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        max-height: none;
+        overflow: visible;
+
+        ul {
+          display: flex;
+          gap: 15px;
+          margin-right: 80px;
+          align-items: center;
+        }
+
+        /* 🔥 SELECTORES EXPLÍCITOS SIN & */
+
+        ul .link_formaciones {
+          position: relative;
+
+        }
+
+
+        ul .link_formaciones .link_formaciones_submenu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 250px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+          max-height: none;
+          overflow: visible;
+          transition: none;
+
+          display: none;
+        }
+
+        /* 👇 ESTA ES LA CLAVE */
+        ul .link_formaciones:hover .link_formaciones_submenu {
+          display: block;
+        }
+
+        .link_formaciones_submenu > li:hover {
+           background-color: ab.$cyan;
+        }
+      }
+    }
+  }
 }

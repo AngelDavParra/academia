@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   </head>
   <body>
-        <header class="header">
-            <div class="container">
-                <a href="index.html"><img src="./src/img/logocyan2.svg" alt="logotipo"></a>
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon">&#9776;</label>
-                <nav class="header_nav">
-                    <ul>
-                        <li><a href="quienes_somos.html"> Quienes Somos</a></li>
-                        <li class="link_formaciones">
-                            <a href="">Formaciones <i class="bi bi-chevron-down"></i></a>
-                            <ul class="link_formaciones_submenu">
-                            <li><a href="desarrollo_fullstack.html">Máster Desarrollo Full-Stack</a></li>
-                            <li><a href="inteligencia_artificial.html">Máster Inteligencia Artificial</a></li>
-                            </ul>
-                        </li>
-                        <li> <a href="location.html">Contacto</a></li>
-                    </ul> 
-                </nav>
-            </div>
+      <header class="header">
+        <div class="container">
+          <a href="index.html"><img src="./src/img/logocyan2.svg" alt="logotipo"></a>
+          <input type="checkbox" id="menu-toggle">
+          <label for="menu-toggle" class="menu-icon">&#9776;</label>
+          <nav class="header_nav">
+              <ul>
+                  <li><a href="quienes_somos.html"> Quienes Somos</a></li>
+                  <li class="link_formaciones">
+                    <button class="btn_formaciones" aria-expanded="false" aria-controls="submenu-formaciones">Formaciones <i class="bi bi-chevron-down"></i></button>
+                    <ul id="submenu-formaciones" class="link_formaciones_submenu">
+                      <li><a href="desarrollo_fullstack.html">Máster Desarrollo Full-Stack</a></li>
+                      <li><a href="inteligencia_artificial.html">Máster Inteligencia Artificial</a></li>
+                    </ul>
+                  </li>
+                  <li> <a href="location.html">Contacto</a></li>
+              </ul> 
+          </nav>
+        </div>
       </header>
 
     <main>

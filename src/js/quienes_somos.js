@@ -3,17 +3,18 @@ console.log('Quienes Somos JS loaded');
 
 
 
-const linkFormaciones = document.querySelector('.link_formaciones > a');
-const formacionesMaster = document.querySelector('.link_formaciones_submenu');
+const botonFormaciones = document.querySelector('.btn_formaciones');
+const submenu = document.querySelector('#submenu-formaciones');
 
+botonFormaciones.addEventListener('click', function (e) {
+  e.stopPropagation();
+  const abierto = submenu.classList.toggle('activo');
+  botonFormaciones.setAttribute('aria-expanded', abierto);
+});
 
-
-linkFormaciones.addEventListener('click', (evento) => {
-       evento.preventDefault();
-
-    // getComputedStyle:  Es una función del navegador que devuelve todos los estilos finales aplicados a un elemento después de css eterno o interno, clases etilos por defecto del navegador
-    const displayActual = getComputedStyle(formacionesMaster).display;
-
-    formacionesMaster.style.display =
-        displayActual === 'none' ? 'block' : 'none';
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.link_formaciones')) {
+    submenu.classList.remove('activo');
+    botonFormaciones.setAttribute('aria-expanded', false);
+  }
 });
